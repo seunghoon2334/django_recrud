@@ -1,0 +1,9 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+<p>title : {{ board.title }}</p>
+<p>content : {{ board.content }}</p>
+<p>created_at : {{ board.created_at }}</p>
+<p>updated_at : {{ board.updated_at }}</p>
+<a href='/boards/'>home</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+{% for bo in board %}
+    <p>{{ bo.title }}</p>
+    <p>{{ bo.content }}</p>
+    <a href='/boards/{{ bo.pk }}'>상세보기</a>
+    <a href='/boards/{{ bo.pk }}/edit'>수정하기</a>
+    <a href='/boards/{{ bo.pk }}/delete'>삭제하기</a>
+    <hr>
+{% endfor %}
+<a href='/boards/new'>새로만들기</a>
+{% endblock %}
