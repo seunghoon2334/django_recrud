@@ -8,6 +8,12 @@
 <p>updated_at : {{ board.updated_at }}</p>
 <a href="{% url 'boards:index' %}">home</a>
 <hr>
+<p>댓글 작성</p>
+<form action="{% url 'boards:comment_create' board.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="content">
+    <input type="submit">
+</form>
 {% for comment in comments %}
 <li>{{ comment.content }} </li>
 {% endfor %}
