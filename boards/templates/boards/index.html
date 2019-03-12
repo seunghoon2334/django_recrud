@@ -4,10 +4,13 @@
 {% for bo in board %}
     <p>{{ bo.title }}</p>
     <p>{{ bo.content }}</p>
-    <a href='/boards/{{ bo.pk }}'>상세보기</a>
-    <a href='/boards/{{ bo.pk }}/edit'>수정하기</a>
-    <a href='/boards/{{ bo.pk }}/delete'>삭제하기</a>
+    <a href="{% url 'boards:detail' bo.pk %}">상세보기</a>
+    <a href="{% url 'boards:edit' bo.pk %}">수정하기</a>
+    <form action="{% url 'boards:delete' bo.pk %}" method="POST" style='display: inline' onsubmit="return confirm('삭제할거야?')">
+        {% csrf_token %}
+        <input type='submit' value='삭제하기'>
+    </form>
     <hr>
 {% endfor %}
-<a href='/boards/new'>새로만들기</a>
+<a href="{% url 'boards:new' %}">새로만들기</a>
 {% endblock %}

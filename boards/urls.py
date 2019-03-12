@@ -1,12 +1,14 @@
 from django.urls import path, include
 from . import views
 
+app_name = 'boards'
+
 urlpatterns = [
-    path('', views.index),
-    path('new/', views.new),
-    path('create/', views.create),
-    path('<int:pk>/', views.detail),
-    path('<int:pk>/edit/', views.edit),
-    path('<int:pk>/update/', views.update),
-    path('<int:pk>/delete/', views.delete),
+    path('', views.index, name='index'), #boards/
+    path('new/', views.new, name='new'), #boards/new
+    # path('create/', views.create, name='create'),
+    path('<int:pk>/', views.detail, name='detail'),
+    path('<int:pk>/edit/', views.edit, name='edit'),
+    # path('<int:pk>/update/', views.update, name='update'),
+    path('<int:pk>/delete/', views.delete, name='delete'),
 ]
