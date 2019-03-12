@@ -7,4 +7,8 @@
 <p>created_at : {{ board.created_at }}</p>
 <p>updated_at : {{ board.updated_at }}</p>
 <a href="{% url 'boards:index' %}">home</a>
+<hr>
+{% for comment in comments %}
+<li>{{ comment.content }} </li>
+{% endfor %}
 {% endblock %}

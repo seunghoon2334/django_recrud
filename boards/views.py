@@ -24,7 +24,12 @@ def new(request):
     
 def detail(request, pk):
     board = boards.objects.get(pk=pk)
-    return render(request, 'boards/detail.html', {'board':board})
+    comments = board.comment_set.all()
+    context = {
+        'board':board,
+        'comments':comments
+    }
+    return render(request, 'boards/detail.html', context)
     
 def edit(request, pk):
     if request.method == 'POST':
